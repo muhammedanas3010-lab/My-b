@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KAIZ SOOQ - ബിസിനസ് മാനേജർ</title>
+    <title>KAIZ SOOQ - Business Manager</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -17,21 +17,21 @@
 </head>
 <body class="text-gray-800 pb-20">
 
-    <!-- Top Dark Green Header (Image Theme) -->
+    <!-- Top Dark Green Header -->
     <header class="bg-[#0b3b2c] text-white pt-6 pb-12 px-4 rounded-b-[30px] shadow-lg">
         <div class="max-w-2xl mx-auto flex justify-between items-center mb-6">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center font-bold text-lg text-white">KS</div>
                 <div>
                     <p class="text-xs text-emerald-200">Welcome back,</p>
-                    <h2 class="text-base font-bold tracking-wide">KAIZ SOOQ (Darling)</h2>
+                    <h2 class="text-base font-bold tracking-wide">KAIZ SOOQ</h2>
                 </div>
             </div>
             <div class="flex items-center gap-2">
                 <select id="global-filter" onchange="changeFilter(this.value)" class="bg-[#06261c] text-emerald-200 text-xs rounded-lg px-2.5 py-1.5 border border-emerald-700 outline-none font-semibold">
-                    <option value="all">എല്ലാ വിഭാഗങ്ങളും</option>
-                    <option value="Ledi">Ledi (ലേഡി)</option>
-                    <option value="Bebi">Bebi (ബേബി)</option>
+                    <option value="all">All Segments</option>
+                    <option value="Ledi">Ledi</option>
+                    <option value="Bebi">Bebi</option>
                 </select>
                 <div class="w-9 h-9 rounded-full bg-[#06261c] border border-emerald-700 flex items-center justify-center text-emerald-300 text-sm">🔔</div>
             </div>
@@ -39,11 +39,11 @@
 
         <!-- Wallet / Balance Card in Header -->
         <div class="max-w-2xl mx-auto bg-[#114b38] border border-emerald-700/50 p-5 rounded-2xl shadow-inner text-center">
-            <p class="text-xs text-emerald-300 font-medium">ടോട്ടൽ ബിസിനസ്സ് പ്രോഫിറ്റ്</p>
+            <p class="text-xs text-emerald-300 font-medium">Total Business Profit</p>
             <h1 class="text-3xl font-extrabold text-white mt-1" id="dash-profit">₹0</h1>
             <div class="flex justify-center gap-3 mt-4">
-                <button onclick="switchTab('orders')" class="bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-semibold px-5 py-2 rounded-xl transition shadow">＋ പുതിയ ഓർഡർ</button>
-                <button onclick="switchTab('finance')" class="bg-[#19634b] hover:bg-[#207a5d] text-emerald-100 text-xs font-semibold px-5 py-2 rounded-xl transition border border-emerald-600">ചെലവുകൾ</button>
+                <button onclick="switchTab('orders')" class="bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-semibold px-5 py-2 rounded-xl transition shadow">＋ New Order</button>
+                <button onclick="switchTab('finance')" class="bg-[#19634b] hover:bg-[#207a5d] text-emerald-100 text-xs font-semibold px-5 py-2 rounded-xl transition border border-emerald-600">Expenses</button>
             </div>
         </div>
     </header>
@@ -55,14 +55,14 @@
         <div class="grid grid-cols-2 gap-3 mb-6">
             <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between">
                 <div>
-                    <p class="text-xs text-gray-400 font-medium">ആകെ വരുമാനം</p>
+                    <p class="text-xs text-gray-400 font-medium">Total Revenue</p>
                     <h3 class="text-lg font-bold text-green-600 mt-0.5" id="dash-revenue">₹0</h3>
                 </div>
                 <div class="w-10 h-10 rounded-xl bg-green-50 text-green-600 flex items-center justify-center text-lg">📈</div>
             </div>
             <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between">
                 <div>
-                    <p class="text-xs text-gray-400 font-medium">ഓണർ സേവിങ്സ്</p>
+                    <p class="text-xs text-gray-400 font-medium">Owner Savings</p>
                     <h3 class="text-lg font-bold text-amber-600 mt-0.5" id="dash-owner-savings">₹0</h3>
                 </div>
                 <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-lg">💰</div>
@@ -71,36 +71,36 @@
 
         <!-- Urgent Deliveries Alert -->
         <div class="bg-red-50 border border-red-200 rounded-2xl p-4 mb-6 shadow-sm">
-            <h4 class="text-xs font-bold text-red-700 uppercase tracking-wider mb-2">🚨 അടിയന്തര ഡെലിവറികൾ (Urgent Deliveries)</h4>
+            <h4 class="text-xs font-bold text-red-700 uppercase tracking-wider mb-2">🚨 Urgent Deliveries (Next 2 Days)</h4>
             <div id="urgent-deliveries-list" class="space-y-2 text-xs text-red-900">
-                <p class="text-gray-400 italic">പെൻഡിങ് ഡെലിവറികൾ ഒന്നുമില്ല.</p>
+                <p class="text-gray-400 italic">No urgent deliveries pending.</p>
             </div>
         </div>
 
         <!-- Category Performance Summary -->
         <div class="grid grid-cols-2 gap-4 mb-6">
             <div class="bg-white p-4 rounded-2xl shadow-sm border border-pink-100">
-                <h4 class="text-sm font-bold text-pink-700 mb-2">👗 Ledi പെർഫോമൻസ്</h4>
-                <div class="flex justify-between py-1 text-xs text-gray-500"><span>വരുമാനം:</span> <strong id="ledi-rev" class="text-green-600">₹0</strong></div>
-                <div class="flex justify-between py-1 text-xs text-gray-500"><span>ലാഭം:</span> <strong id="ledi-profit" class="text-indigo-600">₹0</strong></div>
+                <h4 class="text-sm font-bold text-pink-700 mb-2">👗 Ledi Performance</h4>
+                <div class="flex justify-between py-1 text-xs text-gray-500"><span>Revenue:</span> <strong id="ledi-rev" class="text-green-600">₹0</strong></div>
+                <div class="flex justify-between py-1 text-xs text-gray-500"><span>Profit:</span> <strong id="ledi-profit" class="text-indigo-600">₹0</strong></div>
             </div>
             <div class="bg-white p-4 rounded-2xl shadow-sm border border-sky-100">
-                <h4 class="text-sm font-bold text-sky-700 mb-2">👶 Bebi പെർഫോമൻസ്</h4>
-                <div class="flex justify-between py-1 text-xs text-gray-500"><span>വരുമാനം:</span> <strong id="bebi-rev" class="text-green-600">₹0</strong></div>
-                <div class="flex justify-between py-1 text-xs text-gray-500"><span>ലാഭം:</span> <strong id="bebi-profit" class="text-indigo-600">₹0</strong></div>
+                <h4 class="text-sm font-bold text-sky-700 mb-2">👶 Bebi Performance</h4>
+                <div class="flex justify-between py-1 text-xs text-gray-500"><span>Revenue:</span> <strong id="bebi-rev" class="text-green-600">₹0</strong></div>
+                <div class="flex justify-between py-1 text-xs text-gray-500"><span>Profit:</span> <strong id="bebi-profit" class="text-indigo-600">₹0</strong></div>
             </div>
         </div>
 
-        <!-- TAB 1: DASHBOARD & RECENT -->
+        <!-- TAB 1: DASHBOARD -->
         <div id="tab-dashboard" class="tab-content space-y-4">
             <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
                 <div class="flex justify-between items-center mb-3">
-                    <h3 class="text-sm font-bold text-gray-800">വിഭാഗങ്ങളുടെ സംഗ്രഹം</h3>
-                    <span class="text-xs text-emerald-600 font-semibold" id="dash-orders">0 ആകെ ഓർഡറുകൾ</span>
+                    <h3 class="text-sm font-bold text-gray-800">Business Overview</h3>
+                    <span class="text-xs text-emerald-600 font-semibold" id="dash-orders">0 Total Orders</span>
                 </div>
                 <div class="space-y-3">
                     <div class="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
-                        <span class="text-xs font-medium text-gray-600">ആകെ ചെലവുകൾ (Expenses + Cost)</span>
+                        <span class="text-xs font-medium text-gray-600">Total Expenses (Cost + General)</span>
                         <span class="text-sm font-bold text-red-600" id="dash-expense">₹0</span>
                     </div>
                 </div>
@@ -110,47 +110,47 @@
         <!-- TAB 2: ORDERS SECTION -->
         <div id="tab-orders" class="tab-content hidden space-y-4">
             <div class="bg-white p-5 rounded-2xl shadow-sm border">
-                <h3 class="text-sm font-bold text-gray-800 mb-3">പുതിയ ഓർഡർ ചേർക്കുക</h3>
+                <h3 class="text-sm font-bold text-gray-800 mb-3">Add New Order</h3>
                 <form id="order-form" class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
                     <div>
-                        <label class="block font-semibold text-gray-500 mb-1">സെഗ്‌‌മെന്റ്</label>
+                        <label class="block font-semibold text-gray-500 mb-1">Segment</label>
                         <select id="order-segment" required class="w-full border p-2 rounded-xl outline-none bg-gray-50 font-medium">
-                            <option value="Ledi">Ledi (ലേഡി)</option>
-                            <option value="Bebi">Bebi (ബേബി)</option>
+                            <option value="Ledi">Ledi</option>
+                            <option value="Bebi">Bebi</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block font-semibold text-gray-500 mb-1">കസ്റ്റമറുടെ പേര്</label>
-                        <input type="text" id="order-customer" placeholder="പേര്" required class="w-full border p-2 rounded-xl outline-none bg-gray-50">
+                        <label class="block font-semibold text-gray-500 mb-1">Customer Name</label>
+                        <input type="text" id="order-customer" placeholder="Customer Name" required class="w-full border p-2 rounded-xl outline-none bg-gray-50">
                     </div>
                     <div>
-                        <label class="block font-semibold text-gray-500 mb-1">ഐറ്റം വിവരങ്ങൾ</label>
-                        <input type="text" id="order-item" placeholder="ഐറ്റം പേര്" required class="w-full border p-2 rounded-xl outline-none bg-gray-50">
+                        <label class="block font-semibold text-gray-500 mb-1">Item Details</label>
+                        <input type="text" id="order-item" placeholder="Item Name / Design" required class="w-full border p-2 rounded-xl outline-none bg-gray-50">
                     </div>
                     <div>
-                        <label class="block font-semibold text-gray-500 mb-1">ആകെ തുക (Selling Price ₹)</label>
+                        <label class="block font-semibold text-gray-500 mb-1">Selling Price (₹)</label>
                         <input type="number" id="order-amount" placeholder="₹" required class="w-full border p-2 rounded-xl outline-none bg-gray-50">
                     </div>
                     <div>
-                        <label class="block font-semibold text-gray-500 mb-1">ആകെ ചെലവ് (Cost ₹)</label>
+                        <label class="block font-semibold text-gray-500 mb-1">Total Cost (₹)</label>
                         <input type="number" id="order-cost" placeholder="₹" required class="w-full border p-2 rounded-xl outline-none bg-gray-50">
                     </div>
                     <div>
-                        <label class="block font-semibold text-gray-500 mb-1">ഡെലിവറി തീയതി</label>
+                        <label class="block font-semibold text-gray-500 mb-1">Delivery Date</label>
                         <input type="date" id="order-date" required class="w-full border p-2 rounded-xl outline-none bg-gray-50">
                     </div>
                     <div>
-                        <label class="block font-semibold text-gray-500 mb-1">അളവുകൾ / സൈസ്</label>
-                        <input type="text" id="order-measurements" placeholder="സൈസ്" required class="w-full border p-2 rounded-xl outline-none bg-gray-50">
+                        <label class="block font-semibold text-gray-500 mb-1">Measurements / Size</label>
+                        <input type="text" id="order-measurements" placeholder="Size / Details" required class="w-full border p-2 rounded-xl outline-none bg-gray-50">
                     </div>
                     <div>
-                        <label class="block font-semibold text-gray-500 mb-1">ടൈലർ</label>
+                        <label class="block font-semibold text-gray-500 mb-1">Assigned Tailor</label>
                         <select id="order-tailor" required class="w-full border p-2 rounded-xl outline-none bg-gray-50 font-medium">
-                            <option value="">ടൈലറെ തിരഞ്ഞെടുക്കുക</option>
+                            <option value="">Select Tailor</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block font-semibold text-gray-500 mb-1">സ്റ്റാറ്റസ്</label>
+                        <label class="block font-semibold text-gray-500 mb-1">Order Status</label>
                         <select id="order-status" required class="w-full border p-2 rounded-xl outline-none bg-gray-50">
                             <option value="Pending">Pending</option>
                             <option value="Stitching">Stitching</option>
@@ -159,7 +159,7 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block font-semibold text-gray-500 mb-1">പേയ്മെന്റ്</label>
+                        <label class="block font-semibold text-gray-500 mb-1">Payment Status</label>
                         <select id="order-payment" required class="w-full border p-2 rounded-xl outline-none bg-gray-50">
                             <option value="Paid">Paid</option>
                             <option value="Advance">Advance</option>
@@ -167,7 +167,7 @@
                         </select>
                     </div>
                     <div class="col-span-full pt-2">
-                        <button type="submit" class="w-full bg-[#0b3b2c] text-white py-2.5 rounded-xl font-semibold hover:bg-[#114b38] transition">ഓർഡർ സേവ് ചെയ്യുക</button>
+                        <button type="submit" class="w-full bg-[#0b3b2c] text-white py-2.5 rounded-xl font-semibold hover:bg-[#114b38] transition">Save Order</button>
                     </div>
                 </form>
             </div>
@@ -177,13 +177,13 @@
                 <table class="w-full text-left border-collapse text-xs">
                     <thead class="bg-gray-50 border-b">
                         <tr>
-                            <th class="p-2.5 font-semibold">സെഗ്</th>
-                            <th class="p-2.5 font-semibold">കസ്റ്റമർ</th>
-                            <th class="p-2.5 font-semibold">ഐറ്റം</th>
-                            <th class="p-2.5 font-semibold">ടൈലർ</th>
-                            <th class="p-2.5 font-semibold">തീയതി</th>
-                            <th class="p-2.5 font-semibold">തുക</th>
-                            <th class="p-2.5 font-semibold">പ്രവർത്തനം</th>
+                            <th class="p-2.5 font-semibold">Seg</th>
+                            <th class="p-2.5 font-semibold">Customer</th>
+                            <th class="p-2.5 font-semibold">Item</th>
+                            <th class="p-2.5 font-semibold">Tailor</th>
+                            <th class="p-2.5 font-semibold">Date</th>
+                            <th class="p-2.5 font-semibold">Price</th>
+                            <th class="p-2.5 font-semibold">Actions</th>
                         </tr>
                     </thead>
                     <tbody id="orders-list" class="divide-y"></tbody>
@@ -194,24 +194,22 @@
         <!-- TAB 3: STOCK SECTION -->
         <div id="tab-stock" class="tab-content hidden space-y-4">
             <div class="bg-white p-5 rounded-2xl shadow-sm border">
-                <h3 class="text-sm font-bold text-gray-800 mb-3">സ്റ്റോക്ക് ചേർക്കുക</h3>
+                <h3 class="text-sm font-bold text-gray-800 mb-3">Add Stock</h3>
                 <form id="stock-form" class="grid grid-cols-1 gap-3 text-xs">
                     <select id="stock-segment" required class="border p-2 rounded-xl bg-gray-50">
-                        <option value="Ledi">Ledi (ലേഡി)</option>
-                        <option value="Bebi">Bebi (ബേബി)</option>
+                        <option value="Ledi">Ledi</option>
+                        <option value="Bebi">Bebi</option>
                     </select>
-                    <input type="text" id="stock-name" placeholder="ഐറ്റത്തിന്റെ പേര്" required class="border p-2 rounded-xl bg-gray-50">
-                    <input type="number" id="stock-qty" placeholder="എണ്ണം (Quantity)" required class="border p-2 rounded-xl bg-gray-50">
-                    <input type="text" id="stock-location" placeholder="സ്റ്റോറേജ് സ്ഥലം (Rack/Shelf)" required class="border p-2 rounded-xl bg-gray-50">
-                    <button type="submit" class="bg-[#0b3b2c] text-white py-2.5 rounded-xl font-semibold">സ്റ്റോക്ക് സേവ് ചെയ്യുക</button>
+                    <input type="text" id="stock-name" placeholder="Item Name" required class="border p-2 rounded-xl bg-gray-50">
+                    <input type="number" id="stock-qty" placeholder="Quantity" required class="border p-2 rounded-xl bg-gray-50">
+                    <input type="text" id="stock-location" placeholder="Storage Location (Rack/Shelf)" required class="border p-2 rounded-xl bg-gray-50">
+                    <button type="submit" class="bg-[#0b3b2c] text-white py-2.5 rounded-xl font-semibold">Save Stock</button>
                 </form>
             </div>
             <div class="bg-white rounded-2xl shadow-sm border overflow-x-auto p-2">
                 <table class="w-full text-left border-collapse text-xs">
                     <thead class="bg-gray-50 border-b">
-                        <tr>
-                            <th class="p-2.5">സെഗ്</th><th class="p-2.5">പേര്</th><th class="p-2.5">എണ്ണം</th><th class="p-2.5">ലൊക്കേഷൻ</th><th class="p-2.5">ആക്ഷൻ</th>
-                        </tr>
+                        <tr><th class="p-2.5">Seg</th><th class="p-2.5">Name</th><th class="p-2.5">Qty</th><th class="p-2.5">Location</th><th class="p-2.5">Action</th></tr>
                     </thead>
                     <tbody id="stock-list" class="divide-y"></tbody>
                 </table>
@@ -221,21 +219,21 @@
         <!-- TAB 4: CUSTOMERS SECTION -->
         <div id="tab-customers" class="tab-content hidden space-y-4">
             <div class="bg-white p-5 rounded-2xl shadow-sm border">
-                <h3 class="text-sm font-bold text-gray-800 mb-3">കസ്റ്റമർ ചേർക്കുക</h3>
+                <h3 class="text-sm font-bold text-gray-800 mb-3">Add Customer</h3>
                 <form id="customer-form" class="grid grid-cols-1 gap-3 text-xs">
                     <select id="cust-segment" required class="border p-2 rounded-xl bg-gray-50">
-                        <option value="Ledi">Ledi (ലേഡി)</option>
-                        <option value="Bebi">Bebi (ബേബി)</option>
+                        <option value="Ledi">Ledi</option>
+                        <option value="Bebi">Bebi</option>
                     </select>
-                    <input type="text" id="cust-name" placeholder="പേര്" required class="border p-2 rounded-xl bg-gray-50">
-                    <input type="text" id="cust-phone" placeholder="ഫോൺ നമ്പർ" required class="border p-2 rounded-xl bg-gray-50">
-                    <button type="submit" class="bg-[#0b3b2c] text-white py-2.5 rounded-xl font-semibold">കസ്റ്റമറെ ചേർക്കുക</button>
+                    <input type="text" id="cust-name" placeholder="Customer Name" required class="border p-2 rounded-xl bg-gray-50">
+                    <input type="text" id="cust-phone" placeholder="Phone Number" required class="border p-2 rounded-xl bg-gray-50">
+                    <button type="submit" class="bg-[#0b3b2c] text-white py-2.5 rounded-xl font-semibold">Save Customer</button>
                 </form>
             </div>
             <div class="bg-white rounded-2xl shadow-sm border overflow-x-auto p-2">
                 <table class="w-full text-left border-collapse text-xs">
                     <thead class="bg-gray-50 border-b">
-                        <tr><th class="p-2.5">സെഗ്</th><th class="p-2.5">പേര്</th><th class="p-2.5">ഫോൺ</th><th class="p-2.5">ആക്ഷൻ</th></tr>
+                        <tr><th class="p-2.5">Seg</th><th class="p-2.5">Name</th><th class="p-2.5">Phone</th><th class="p-2.5">Action</th></tr>
                     </thead>
                     <tbody id="customers-list" class="divide-y"></tbody>
                 </table>
@@ -245,17 +243,17 @@
         <!-- TAB 5: EMPLOYEES / TAILORS SECTION -->
         <div id="tab-employees" class="tab-content hidden space-y-4">
             <div class="bg-white p-5 rounded-2xl shadow-sm border">
-                <h3 class="text-sm font-bold text-gray-800 mb-3">ടൈലർമാരെ ചേർക്കുക</h3>
+                <h3 class="text-sm font-bold text-gray-800 mb-3">Add Tailor / Employee</h3>
                 <form id="employee-form" class="grid grid-cols-1 gap-3 text-xs">
-                    <input type="text" id="emp-name" placeholder="പേര് (ഉദാ: ഉമ്മ, അനു...)" required class="border p-2 rounded-xl bg-gray-50">
-                    <input type="text" id="emp-role" placeholder="റോൾ" value="Tailor" required class="border p-2 rounded-xl bg-gray-50">
-                    <button type="submit" class="bg-[#0b3b2c] text-white py-2.5 rounded-xl font-semibold">ടൈലറെ ചേർക്കുക</button>
+                    <input type="text" id="emp-name" placeholder="Tailor Name" required class="border p-2 rounded-xl bg-gray-50">
+                    <input type="text" id="emp-role" placeholder="Role" value="Tailor" required class="border p-2 rounded-xl bg-gray-50">
+                    <button type="submit" class="bg-[#0b3b2c] text-white py-2.5 rounded-xl font-semibold">Save Tailor</button>
                 </form>
             </div>
             <div class="bg-white rounded-2xl shadow-sm border overflow-x-auto p-2">
                 <table class="w-full text-left border-collapse text-xs">
                     <thead class="bg-gray-50 border-b">
-                        <tr><th class="p-2.5">പേര്</th><th class="p-2.5">റോൾ</th><th class="p-2.5">ഓർഡറുകൾ</th><th class="p-2.5">ആക്ഷൻ</th></tr>
+                        <tr><th class="p-2.5">Name</th><th class="p-2.5">Role</th><th class="p-2.5">Orders</th><th class="p-2.5">Action</th></tr>
                     </thead>
                     <tbody id="employees-list" class="divide-y"></tbody>
                 </table>
@@ -265,21 +263,21 @@
         <!-- TAB 6: FINANCE SECTION -->
         <div id="tab-finance" class="tab-content hidden space-y-4">
             <div class="bg-white p-5 rounded-2xl shadow-sm border">
-                <h3 class="text-sm font-bold text-gray-800 mb-3">പൊതു ചെലവുകൾ (Expenses) ചേർക്കുക</h3>
+                <h3 class="text-sm font-bold text-gray-800 mb-3">Add General Expenses</h3>
                 <form id="expense-form" class="grid grid-cols-1 gap-3 text-xs">
                     <select id="exp-segment" required class="border p-2 rounded-xl bg-gray-50">
-                        <option value="Ledi">Ledi (ലേഡി)</option>
-                        <option value="Bebi">Bebi (ബേബി)</option>
+                        <option value="Ledi">Ledi</option>
+                        <option value="Bebi">Bebi</option>
                     </select>
-                    <input type="text" id="exp-desc" placeholder="ചെലവിന്റെ കാരണം (ഉദാ: റെന്റ്)" required class="border p-2 rounded-xl bg-gray-50">
-                    <input type="number" id="exp-amount" placeholder="തുക (₹)" required class="border p-2 rounded-xl bg-gray-50">
-                    <button type="submit" class="bg-red-600 text-white py-2.5 rounded-xl font-semibold">ചെലവ് സേവ് ചെയ്യുക</button>
+                    <input type="text" id="exp-desc" placeholder="Expense Reason (e.g. Rent, Electricity)" required class="border p-2 rounded-xl bg-gray-50">
+                    <input type="number" id="exp-amount" placeholder="Amount (₹)" required class="border p-2 rounded-xl bg-gray-50">
+                    <button type="submit" class="bg-red-600 text-white py-2.5 rounded-xl font-semibold">Save Expense</button>
                 </form>
             </div>
             <div class="bg-white rounded-2xl shadow-sm border overflow-x-auto p-2">
                 <table class="w-full text-left border-collapse text-xs">
                     <thead class="bg-gray-50 border-b">
-                        <tr><th class="p-2.5">സെഗ്</th><th class="p-2.5">വിവരണം</th><th class="p-2.5">തുക</th><th class="p-2.5">ആക്ഷൻ</th></tr>
+                        <tr><th class="p-2.5">Seg</th><th class="p-2.5">Description</th><th class="p-2.5">Amount</th><th class="p-2.5">Action</th></tr>
                     </thead>
                     <tbody id="expenses-list" class="divide-y"></tbody>
                 </table>
@@ -289,30 +287,30 @@
         <!-- TAB 7: ANALYTICS SECTION -->
         <div id="tab-analytics" class="tab-content hidden space-y-4">
             <div class="bg-white p-5 rounded-2xl shadow-sm border space-y-3">
-                <h3 class="text-sm font-bold text-gray-800">തീയതി അടിസ്ഥാനത്തിലുള്ള അനലൈസിസ്</h3>
+                <h3 class="text-sm font-bold text-gray-800">Date-wise Analytics & Reports</h3>
                 <div class="grid grid-cols-1 gap-3 text-xs">
                     <div>
-                        <label class="block text-gray-500 mb-1">ആരംഭ തീയതി</label>
+                        <label class="block text-gray-500 mb-1">From Date</label>
                         <input type="date" id="anal-start-date" class="w-full border p-2 rounded-xl bg-gray-50">
                     </div>
                     <div>
-                        <label class="block text-gray-500 mb-1">അവസാന തീയതി</label>
+                        <label class="block text-gray-500 mb-1">To Date</label>
                         <input type="date" id="anal-end-date" class="w-full border p-2 rounded-xl bg-gray-50">
                     </div>
-                    <button onclick="calculateAnalytics()" class="w-full bg-[#0b3b2c] text-white py-2.5 rounded-xl font-semibold">റിപ്പോർട്ട് കാണുക</button>
+                    <button onclick="calculateAnalytics()" class="w-full bg-[#0b3b2c] text-white py-2.5 rounded-xl font-semibold">View Report</button>
                 </div>
                 <div id="analytics-results" class="grid grid-cols-2 gap-3 mt-4 pt-4 border-t hidden text-xs">
-                    <div class="bg-gray-50 p-3 rounded-xl"><p class="text-gray-400">വരുമാനം</p><h4 class="text-base font-bold text-green-600 mt-1" id="anal-rev">₹0</h4></div>
-                    <div class="bg-gray-50 p-3 rounded-xl"><p class="text-gray-400">ചെലവ്</p><h4 class="text-base font-bold text-red-600 mt-1" id="anal-exp">₹0</h4></div>
-                    <div class="bg-gray-50 p-3 rounded-xl"><p class="text-gray-400">ബിസിനസ്സ് ലാഭം</p><h4 class="text-base font-bold text-indigo-600 mt-1" id="anal-profit">₹0</h4></div>
-                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-200"><p class="text-amber-700">ഓണർ സേവിങ്സ്</p><h4 class="text-base font-bold text-amber-600 mt-1" id="anal-owner">₹0</h4></div>
+                    <div class="bg-gray-50 p-3 rounded-xl"><p class="text-gray-400">Revenue</p><h4 class="text-base font-bold text-green-600 mt-1" id="anal-rev">₹0</h4></div>
+                    <div class="bg-gray-50 p-3 rounded-xl"><p class="text-gray-400">Expenses</p><h4 class="text-base font-bold text-red-600 mt-1" id="anal-exp">₹0</h4></div>
+                    <div class="bg-gray-50 p-3 rounded-xl"><p class="text-gray-400">Business Profit</p><h4 class="text-base font-bold text-indigo-600 mt-1" id="anal-profit">₹0</h4></div>
+                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-200"><p class="text-amber-700">Owner Savings</p><h4 class="text-base font-bold text-amber-600 mt-1" id="anal-owner">₹0</h4></div>
                 </div>
             </div>
         </div>
 
     </main>
 
-    <!-- Bottom Navigation Bar (Image Style) -->
+    <!-- Bottom Navigation Bar -->
     <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-2 px-4 shadow-lg z-50">
         <div class="max-w-md mx-auto flex justify-between items-center">
             <button onclick="switchTab('dashboard')" class="nav-btn flex flex-col items-center text-gray-400 hover:text-[#0b3b2c] transition" id="bbtn-dashboard">
@@ -345,16 +343,16 @@
             <h3 class="text-lg font-semibold mt-3 bg-gray-100 py-1 rounded">INVOICE / BILL</h3>
         </div>
         <div class="space-y-2 text-sm mb-6">
-            <div class="flex justify-between"><span>കസ്റ്റമർ പേര്:</span> <strong id="inv-customer"></strong></div>
-            <div class="flex justify-between"><span>വിഭാഗം:</span> <strong id="inv-segment"></strong></div>
-            <div class="flex justify-between"><span>ഐറ്റം:</span> <strong id="inv-item"></strong></div>
-            <div class="flex justify-between"><span>അളവ്/സൈസ്:</span> <strong id="inv-measurements"></strong></div>
-            <div class="flex justify-between"><span>തീയതി:</span> <strong id="inv-date"></strong></div>
-            <div class="flex justify-between"><span>ടൈലർ:</span> <strong id="inv-tailor"></strong></div>
-            <div class="flex justify-between"><span>പേയ്മെന്റ്:</span> <strong id="inv-payment"></strong></div>
+            <div class="flex justify-between"><span>Customer Name:</span> <strong id="inv-customer"></strong></div>
+            <div class="flex justify-between"><span>Segment:</span> <strong id="inv-segment"></strong></div>
+            <div class="flex justify-between"><span>Item:</span> <strong id="inv-item"></strong></div>
+            <div class="flex justify-between"><span>Size/Measurements:</span> <strong id="inv-measurements"></strong></div>
+            <div class="flex justify-between"><span>Delivery Date:</span> <strong id="inv-date"></strong></div>
+            <div class="flex justify-between"><span>Tailor:</span> <strong id="inv-tailor"></strong></div>
+            <div class="flex justify-between"><span>Payment:</span> <strong id="inv-payment"></strong></div>
         </div>
         <div class="border-t pt-4 flex justify-between items-center text-lg font-bold">
-            <span>ആകെ തുക:</span> <span id="inv-amount" class="text-[#0b3b2c]"></span>
+            <span>Total Amount:</span> <span id="inv-amount" class="text-[#0b3b2c]"></span>
         </div>
     </div>
 
@@ -364,10 +362,10 @@
             stock: JSON.parse(localStorage.getItem('kaiz_stock')) || [],
             customers: JSON.parse(localStorage.getItem('kaiz_customers')) || [],
             employees: JSON.parse(localStorage.getItem('kaiz_employees')) || [
-                { name: 'ഉമ്മ', role: 'Tailor' },
-                { name: 'അനു', role: 'Tailor' },
-                { name: 'നുസ്രത്ത്', role: 'Tailor' },
-                { name: 'മീമ (v)', role: 'Tailor' }
+                { name: 'Umma', role: 'Tailor' },
+                { name: 'Anu', role: 'Tailor' },
+                { name: 'Nusrath', role: 'Tailor' },
+                { name: 'Meema (v)', role: 'Tailor' }
             ],
             expenses: JSON.parse(localStorage.getItem('kaiz_expenses')) || []
         };
@@ -408,7 +406,7 @@
         function updateTailorDropdown() {
             const select = document.getElementById('order-tailor');
             if(!select) return;
-            select.innerHTML = '<option value="">ടൈലറെ തിരഞ്ഞെടുക്കുക</option>';
+            select.innerHTML = '<option value="">Select Tailor</option>';
             data.employees.forEach(emp => {
                 let opt = document.createElement('option');
                 opt.value = emp.name;
@@ -439,7 +437,7 @@
                     <td class="p-2.5 font-medium">${emp.name}</td>
                     <td class="p-2.5">${emp.role}</td>
                     <td class="p-2.5 font-bold text-[#0b3b2c]">${assignedCount}</td>
-                    <td class="p-2.5"><button onclick="deleteItem('employees', ${index})" class="text-red-500">ഡിലീറ്റ്</button></td>
+                    <td class="p-2.5"><button onclick="deleteItem('employees', ${index})" class="text-red-500">Delete</button></td>
                 `;
                 tbody.appendChild(tr);
             });
@@ -472,7 +470,7 @@
                 let actionTd = document.createElement('td');
                 actionTd.className = 'p-2.5 flex gap-2 items-center text-xs';
                 if(type === 'orders') {
-                    let waText = encodeURIComponent(`ഹലോ ${item.customer}, KAIZ SOOQ ഓർഡർ (${item.item}) വിശദാംശം: തുക ₹${item.amount}, ഡെലിവറി തീയതി: ${item.date}. നന്ദി!`);
+                    let waText = encodeURIComponent(`Hello ${item.customer}, here is your KAIZ SOOQ order (${item.item}) summary: Amount ₹${item.amount}, Delivery Date: ${item.date}. Thank you!`);
                     actionTd.innerHTML = `
                         <a href="https://wa.me/?text=${waText}" target="_blank" class="text-green-600 font-medium">WA</a>
                         <button onclick="printInvoice(${globalIndex})" class="text-indigo-600 font-medium">Bill</button>
@@ -523,7 +521,7 @@
             });
 
             if(urgentOrders.length === 0) {
-                container.innerHTML = `<p class="text-gray-400 italic">പെൻഡിങ് ഡെലിവറികൾ ഒന്നുമില്ല.</p>`;
+                container.innerHTML = `<p class="text-gray-400 italic">No urgent deliveries pending.</p>`;
                 return;
             }
 
@@ -539,7 +537,6 @@
             let lediOrders = data.orders.filter(o => o.segment === 'Ledi');
             let lediExpenses = data.expenses.filter(e => e.segment === 'Ledi');
             let lediRev = lediOrders.reduce((acc, curr) => acc + Number(curr.amount), 0);
-            let lediExp = lediExpenses.reduce((acc, curr) => acc + Number(curr.amount), 0) + lediOrders.reduce((acc, curr) => acc + Number(curr.cost), 0);
             let lediBizProfit = lediOrders.reduce((acc, curr) => acc + Number(curr.bizProfit), 0);
 
             document.getElementById('ledi-rev').innerText = `₹${lediRev}`;
@@ -548,7 +545,6 @@
             let bebiOrders = data.orders.filter(o => o.segment === 'Bebi');
             let bebiExpenses = data.expenses.filter(e => e.segment === 'Bebi');
             let bebiRev = bebiOrders.reduce((acc, curr) => acc + Number(curr.amount), 0);
-            let bebiExp = bebiExpenses.reduce((acc, curr) => acc + Number(curr.amount), 0) + bebiOrders.reduce((acc, curr) => acc + Number(curr.cost), 0);
             let bebiBizProfit = bebiOrders.reduce((acc, curr) => acc + Number(curr.bizProfit), 0);
 
             document.getElementById('bebi-rev').innerText = `₹${bebiRev}`;
@@ -568,13 +564,13 @@
             document.getElementById('dash-expense').innerText = `₹${totalExpense}`;
             document.getElementById('dash-profit').innerText = `₹${totalBizProfit}`;
             document.getElementById('dash-owner-savings').innerText = `₹${totalOwnerSavings}`;
-            document.getElementById('dash-orders').innerText = `${activeOrders.length} ആകെ ഓർഡറുകൾ`;
+            document.getElementById('dash-orders').innerText = `${activeOrders.length} Total Orders`;
         }
 
         function calculateAnalytics() {
             let start = document.getElementById('anal-start-date').value;
             let end = document.getElementById('anal-end-date').value;
-            if(!start || !end) { alert('തീയതികൾ തിരഞ്ഞെടുക്കുക!'); return; }
+            if(!start || !end) { alert('Please select both dates!'); return; }
 
             let filteredOrders = data.orders.filter(o => o.date >= start && o.date <= end);
             let rev = filteredOrders.reduce((acc, curr) => acc + Number(curr.amount), 0);
@@ -653,3 +649,4 @@
     </script>
 </body>
 </html>
+
